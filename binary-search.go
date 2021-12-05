@@ -2,6 +2,10 @@ package algorithms
 
 // BinarySearch performs a binary search on the array to
 // find the position of the given element.
+//
+// NOTE: binary search should only be used with a sorted array.
+// Using binary search with an unsorted array will return an incorrect
+// result.
 func BinarySearch(arr []int, val int) int {
 	arrLen := len(arr)
 	return binarySearchRecursive(arr, val, 0, arrLen)
