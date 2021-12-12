@@ -27,12 +27,10 @@ func HeapSort(arr []int) []int {
 // items in a heap sort to maintain the heap property.
 func heapSortBubbleUp(arr []int, index int) {
 	parent := index / 2
-	indexVal := arr[index]
-	if arr[parent] <= indexVal {
+	if arr[parent] <= arr[index] {
 		return
 	}
-	arr[index] = arr[parent]
-	arr[parent] = indexVal
+	heapSortSwap(arr, index, parent)
 	heapSortBubbleUp(arr, parent)
 }
 
@@ -41,21 +39,26 @@ func heapSortBubbleUp(arr []int, index int) {
 func heapSortBubbleDown(arr []int, index int) {
 	leftChildIndex := (2 * index) + 1
 	rightChildIndex := (2 * index) + 2
-	indexVal := arr[index]
 
 	// checking if right child is < left child; and < arr[index]
 	if len(arr) > rightChildIndex && arr[rightChildIndex] < arr[leftChildIndex] {
-		if arr[rightChildIndex] < indexVal {
-			arr[index] = arr[rightChildIndex]
-			arr[rightChildIndex] = indexVal
+		if arr[rightChildIndex] < arr[index] {
+			heapSortSwap(arr, index, rightChildIndex)
 			heapSortBubbleDown(arr, rightChildIndex)
 			return
 		}
 	}
 
-	if len(arr) > leftChildIndex && arr[leftChildIndex] < indexVal {
-		arr[index] = arr[leftChildIndex]
-		arr[leftChildIndex] = indexVal
+	if len(arr) > leftChildIndex && arr[leftChildIndex] < arr[index] {
+		heapSortSwap(arr, index, leftChildIndex)
 		heapSortBubbleDown(arr, leftChildIndex)
 	}
+}
+
+// heapSortSwap is a helper function for swapping array elements
+// during a heap sort.
+func heapSortSwap(arr []int, index1, index2 int) {
+	index1Value := arr[index1]
+	arr[index1] = arr[index2]
+	arr[index2] = index1Value
 }
