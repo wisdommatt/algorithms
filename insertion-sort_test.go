@@ -29,6 +29,11 @@ func TestInsertionSort(t *testing.T) {
 			args: args{arr: []int{-2, 53, 34, 2, 3, 0, 56}},
 			want: []int{-2, 0, 2, 3, 34, 53, 56},
 		},
+		{
+			name: "sorted numbers",
+			args: args{arr: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},
+			want: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
