@@ -4,7 +4,7 @@ package algorithms
 // array of integers.
 //
 // Best Case Time Complexity: O(n^2)
-// Worst Case Time Complexity: 0(n^2)
+// Worst Case Time Complexity: O(n^2)
 func SelectionSort(arr []int) {
 	j := 0
 	arrLen := len(arr)
