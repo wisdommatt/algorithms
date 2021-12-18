@@ -8,7 +8,7 @@ package algorithms
 func SelectionSort(arr []int) {
 	j := 0
 	arrLen := len(arr)
-	for j <= arrLen-1 {
+	for j < arrLen {
 		for i := j + 1; i < arrLen; i++ {
 			if arr[i] < arr[j] {
 				jValue := arr[j]
